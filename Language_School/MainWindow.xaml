@@ -1,0 +1,31 @@
+﻿<Window x:Class="Language_School.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Language_School"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="850">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"></RowDefinition>
+            <RowDefinition Height="143*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"></ColumnDefinition>
+            <ColumnDefinition Width="375*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <Rectangle Fill="#FFE7F9BF" Grid.ColumnSpan="2" ></Rectangle>
+        <Rectangle Fill="#FFE7F9BF" Grid.RowSpan="2"></Rectangle>
+        <Image Source="/res/school_logo.png" />
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
+            <Button x:Name="BackBut">Назад</Button>
+            <Button x:Name="NextBut">Вперед</Button>
+        </StackPanel>
+
+        <TextBlock Grid.Column="1" FontSize="20">Школа языков "Леарн"</TextBlock>
+        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
+    </Grid>
+</Window>
