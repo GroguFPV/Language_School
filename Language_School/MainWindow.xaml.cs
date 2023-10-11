@@ -29,7 +29,20 @@ namespace Language_School
             //    item.MainImage = File.ReadAllBytes(fullPath);
             //}
             //App.db.SaveChanges();
-            MainFrame.Navigate(new ListPage());
+            MainFrame.Navigate(new Autoris());
+        }
+
+        private void BackBut_Click(object sender, RoutedEventArgs e)
+        {
+            if(MainFrame.CanGoBack) MainFrame.GoBack(); MainFrame.RemoveBackEntry();
+
+        }
+        
+
+        private void ExitBut_Click(object sender, RoutedEventArgs e)
+        {
+            App.isAdmin = false;
+            MainFrame.Navigate(new Autoris());  
         }
     }
 }

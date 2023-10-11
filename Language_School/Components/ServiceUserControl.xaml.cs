@@ -23,6 +23,11 @@ namespace Language_School.Components
         public ServiceUserControl(Service service)
         {
             InitializeComponent();
+            if (App.isAdmin == false)
+            {
+                EditBtn.Visibility = Visibility.Hidden;
+                DeleteBtn.Visibility = Visibility.Hidden;
+            }
             TitleTb.Text = service.Title;
             CostTb.Text = service.Cost.ToString("N0");
             CostTimeTb.Text = service.costTimeStr;

@@ -1,5 +1,4 @@
-﻿using Language_School.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,22 +16,23 @@ using System.Windows.Shapes;
 namespace Language_School.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ListPage.xaml
+    /// Логика взаимодействия для Autoris.xaml
     /// </summary>
-    public partial class ListPage : Page
+    public partial class Autoris : Page
     {
-        public ListPage()
+        public Autoris()
         {
             InitializeComponent();
-            var servicesList = App.db.Service.ToList();
-            if (App.isAdmin == false)
+        }
+
+        private void EnterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(PasswordTb.Password == "0000")
             {
-                AddBut.Visibility = Visibility.Collapsed;
+                App.isAdmin = true;
             }
-            foreach (var service in servicesList)
-            {
-                ServiceWP.Children.Add(new ServiceUserControl(service));
-            }
+
+            NavigationService.Navigate(new ListPage());
         }
     }
 }

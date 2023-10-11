@@ -21,11 +21,11 @@
         <Rectangle Fill="#FFE7F9BF" Grid.RowSpan="2"></Rectangle>
         <Image Source="/res/school_logo.png" />
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
-            <Button x:Name="BackBut">Назад</Button>
-            <Button x:Name="NextBut">Вперед</Button>
+            <Button x:Name="BackBut" Click="BackBut_Click">Назад</Button>
+            <Button x:Name="ExitBut" Click="ExitBut_Click">Выход</Button>
         </StackPanel>
 
         <TextBlock Grid.Column="1" FontSize="20">Школа языков "Леарн"</TextBlock>
-        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
+        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
     </Grid>
 </Window>
