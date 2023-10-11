@@ -33,7 +33,9 @@ namespace Language_School.Components
             CostTimeTb.Text = service.costTimeStr;
             DiscountTb.Text = service.DiscountStr;
             CostTb.Visibility = service.GetVisibility;
-            
+            MainBorder.Background = service.ColorDiscount;
+
+
         }
     }
 }

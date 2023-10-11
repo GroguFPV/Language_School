@@ -30,7 +30,9 @@ namespace Language_School.Pages
             if(PasswordTb.Password == "0000")
             {
                 App.isAdmin = true;
+                MessageBox.Show("Здраствуйте! Вы вошли как администратор!");
             }
+            else MessageBox.Show("Здраствуйте! Вы вошли как пользователь!");
 
             NavigationService.Navigate(new ListPage());
         }

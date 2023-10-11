@@ -24,15 +24,37 @@ namespace Language_School.Pages
         public ListPage()
         {
             InitializeComponent();
-            var servicesList = App.db.Service.ToList();
+            
             if (App.isAdmin == false)
             {
                 AddBut.Visibility = Visibility.Collapsed;
             }
-            foreach (var service in servicesList)
+            Refresh();
+        }
+        private void Refresh()
+        {
+            IEnumerable<Service> servicesListSort = App.db.Service;
+            if(SortCb.SelectedIndex  != 0)
+            {
+                if (SortCb.SelectedIndex == 1)
+                {
+                    servicesListSort = servicesListSort.OrderBy(x => x.CostDiscount);
+                }
+                else if (SortCb.SelectedIndex == 2)
+                {
+                    servicesListSort = servicesListSort.OrderByDescending(x => x.CostDiscount);
+                }
+            }
+            ServiceWP.Children.Clear();
+            foreach (var service in servicesListSort)
             {
                 ServiceWP.Children.Add(new ServiceUserControl(service));
             }
+        }
+        
+        private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

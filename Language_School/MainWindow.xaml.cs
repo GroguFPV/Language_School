@@ -34,7 +34,10 @@ namespace Language_School
 
         private void BackBut_Click(object sender, RoutedEventArgs e)
         {
-            if(MainFrame.CanGoBack) MainFrame.GoBack(); MainFrame.RemoveBackEntry();
+            if (MainFrame.CanGoBack) {
+                MainFrame.GoBack(); 
+                MainFrame.RemoveBackEntry();
+            }
 
         }
         

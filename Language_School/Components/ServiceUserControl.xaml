@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Language_School.Components"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="850">
-    <Border BorderThickness="2" Margin="2" Width="700" BorderBrush="#FFCACACA">
+    <Border x:Name ="MainBorder" BorderThickness="2" Margin="2" Width="700" BorderBrush="#FFCACACA">
         <Grid Margin="8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="13*" />

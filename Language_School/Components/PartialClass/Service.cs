@@ -4,11 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Language_School.Components
 {
     public partial class Service
     {
+        public decimal CostDiscount
+        {
+            get
+            {
+                if (Discount == 0)
+                {
+                    return Cost;
+                }
+                else
+                {
+                    return Cost - (Cost * (decimal)Discount / 100);
+                }
+            }
+        }
+
+         
+            
+
         public string costTimeStr
         {
             get
@@ -19,7 +38,7 @@ namespace Language_School.Components
                 }
                 else
                 {
-                    return $" {Cost - (Cost * (decimal) Discount / 100):0} рублей за {DurationInSeconds / 60} минут";
+                    return $" {CostDiscount:0} рублей за {DurationInSeconds / 60} минут";
                 }
             }
            
@@ -49,6 +68,17 @@ namespace Language_School.Components
                 {
                     return $"*скидка {Discount}%";
                 }
+            }
+        }
+        public Brush ColorDiscount
+        {
+            get
+            {
+                if (Discount == 0)
+                {
+                    return new SolidColorBrush(Colors.White);
+                }
+                else return new SolidColorBrush(Colors.LightGreen);
             }
         }
     }
