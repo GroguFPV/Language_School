@@ -10,20 +10,20 @@ namespace Language_School.Components
 {
     public partial class Service
     {
-        public decimal CostDiscount
-        {
-            get
+            public decimal CostDiscount
             {
-                if (Discount == 0)
+                get
                 {
-                    return Cost;
-                }
-                else
-                {
-                    return Cost - (Cost * (decimal)Discount / 100);
+                    if (Discount == 0)
+                    {
+                        return Cost;
+                    }
+                    else
+                    {
+                        return Cost - (Cost * (decimal)Discount / 100);
+                    }
                 }
             }
-        }
 
          
             
@@ -43,7 +43,7 @@ namespace Language_School.Components
             }
            
         }
-        public Visibility GetVisibility
+        public Visibility GetVisibility 
         {
             get
             {

@@ -16,11 +16,22 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <ComboBox x:Name="SortCb"  SelectionChanged="SortCb_SelectionChanged">
+            <ComboBox Width="150" x:Name="SortCb"  SelectionChanged="SortCb_SelectionChanged">
                 <ComboBoxItem Content="По умолчанию"/>
                 <ComboBoxItem Content="По возрастанию"/>
                 <ComboBoxItem Content="По убыванию"/>
             </ComboBox>
+            <TextBlock >По скидке</TextBlock>
+            <ComboBox Width="110" x:Name="DiscountSort" SelectionChanged="DiscountSort_SelectionChanged">
+                <ComboBoxItem>Все</ComboBoxItem>
+                <ComboBoxItem>0% до 5%</ComboBoxItem>
+                <ComboBoxItem>5% до 15%</ComboBoxItem>
+                <ComboBoxItem>15% до 30%</ComboBoxItem>
+                <ComboBoxItem>30% до 70%</ComboBoxItem>
+                <ComboBoxItem>70% до 100%</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>По названию или описанию</TextBlock>
+            <TextBox Width="180" x:Name="SearchTb" TextChanged="SearchTb_TextChanged" FontSize="14" VerticalAlignment="Center"></TextBox>
         </StackPanel>
         
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">

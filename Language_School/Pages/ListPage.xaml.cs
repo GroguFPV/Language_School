@@ -33,8 +33,9 @@ namespace Language_School.Pages
         }
         private void Refresh()
         {
+            ///////////////////////////////////////////////////////////////////
             IEnumerable<Service> servicesListSort = App.db.Service;
-            if(SortCb.SelectedIndex  != 0)
+            if (SortCb.SelectedIndex != 0)
             {
                 if (SortCb.SelectedIndex == 1)
                 {
@@ -44,7 +45,40 @@ namespace Language_School.Pages
                 {
                     servicesListSort = servicesListSort.OrderByDescending(x => x.CostDiscount);
                 }
+
             }
+            ///////////////////////////////////////////////////////////////////
+            if (DiscountSort.SelectedIndex != 0){
+                if (DiscountSort.SelectedIndex == 1)
+                {
+                    servicesListSort = servicesListSort.Where(x=> x.Discount >= 0 && x.Discount < 5);
+                }
+                if (DiscountSort.SelectedIndex == 2)
+                {
+                    servicesListSort = servicesListSort.Where(x => x.Discount >= 5 && x.Discount < 15);
+                }
+                if (DiscountSort.SelectedIndex == 3)
+                {
+                    servicesListSort = servicesListSort.Where(x => x.Discount >= 15 && x.Discount < 30);
+                }
+                if (DiscountSort.SelectedIndex == 4)
+                {
+                    servicesListSort = servicesListSort.Where(x => x.Discount >= 30 && x.Discount < 70);
+                }
+                if (DiscountSort.SelectedIndex == 1)
+                {
+                    servicesListSort = servicesListSort.Where(x => x.Discount >= 70 && x.Discount < 100);
+                }
+
+            }
+            ///////////////////////////////////////////////////////////////////
+            if(SearchTb.Text != null)
+            {
+                servicesListSort = servicesListSort.Where(x=> x.Title.ToLower().Contains
+                (SearchTb.Text.ToLower()) || x.Description.ToLower().Contains(SearchTb.Text.ToLower()));
+                
+            }
+
             ServiceWP.Children.Clear();
             foreach (var service in servicesListSort)
             {
@@ -53,6 +87,16 @@ namespace Language_School.Pages
         }
         
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void DiscountSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
         }

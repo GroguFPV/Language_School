@@ -15,10 +15,10 @@
                 <RowDefinition Height="13*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
-            <Image Margin="5" x:Name="ImageImg" Grid.RowSpan="4" Height="100" Source="/res/school_logo.png"/>
+            <Image Margin="5" x:Name="ImageImg" Grid.RowSpan="4" Height="120" />
             <TextBlock Grid.Column="1" x:Name="TitleTb"/>
             <StackPanel Grid.Row ="1" Grid.Column="1" Orientation="Horizontal">
                 <TextBlock  TextDecorations="Strikethrough" x:Name="CostTb"></TextBlock>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,8 +35,17 @@ namespace Language_School.Components
             DiscountTb.Text = service.DiscountStr;
             CostTb.Visibility = service.GetVisibility;
             MainBorder.Background = service.ColorDiscount;
+            ImageImg.Source = GetImageSources(service.MainImage);
 
-
+        }
+        private BitmapImage GetImageSources(byte[] byteImage)
+        {
+            MemoryStream byteStream = new MemoryStream(byteImage);
+            BitmapImage image =new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = byteStream;
+            image.EndInit();
+            return image;
         }
     }
 }

@@ -22,13 +22,14 @@ namespace Language_School
         public MainWindow()
         {
             InitializeComponent();
-            //var path = @"C:\Users\Admin\Desktop\Task\Сессия 1\";
-            //foreach (var item in App.db.Service.ToArray())
-            //{
-            //    var fullPath = path + item.MainImagePath;
-            //    item.MainImage = File.ReadAllBytes(fullPath);
-            //}
-            //App.db.SaveChanges();
+            var path = @"C:\Users\Admin\Desktop\Task\Сессия 1\services_s_import\";
+            foreach (var item in App.db.Service.ToArray())
+            {
+                var fullPath = path + item.MainImagePath;
+                item.MainImage = File.ReadAllBytes(fullPath);
+            }
+            App.db.SaveChanges();
+
             MainFrame.Navigate(new Autoris());
         }
 
