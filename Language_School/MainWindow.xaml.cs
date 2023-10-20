@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Language_School.Pages;
+using Language_School.Components;
 
 namespace Language_School
 {
@@ -22,6 +23,7 @@ namespace Language_School
         public MainWindow()
         {
             InitializeComponent();
+            Navigation.mainWindow = this;
             var path = @"C:\Users\Admin\Desktop\Task\Сессия 1\services_s_import\";
             foreach (var item in App.db.Service.ToArray())
             {
@@ -30,23 +32,18 @@ namespace Language_School
             }
             App.db.SaveChanges();
 
-            MainFrame.Navigate(new Autoris());
+            Navigation.NextPage(new PageComponent("Авторизация", new Autoris()));
         }
 
         private void BackBut_Click(object sender, RoutedEventArgs e)
         {
-            if (MainFrame.CanGoBack) {
-                MainFrame.GoBack(); 
-                MainFrame.RemoveBackEntry();
-            }
-
+            Navigation.BackPage();
         }
         
-
         private void ExitBut_Click(object sender, RoutedEventArgs e)
         {
-            App.isAdmin = false;
-            MainFrame.Navigate(new Autoris());  
+            Navigation.ClearHistory();
+            Navigation.NextPage(new PageComponent("Авторизация", new Autoris()));
         }
     }
 }

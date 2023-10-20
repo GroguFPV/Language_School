@@ -16,5 +16,6 @@ namespace Language_School
     {
         static public LSEntities2 db = new LSEntities2();
         public static bool isAdmin = false;
+        //public static MainWindow MainWindow = ;
     }
 }

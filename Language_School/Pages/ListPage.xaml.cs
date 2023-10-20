@@ -71,7 +71,7 @@ namespace Language_School.Pages
                 }
 
             }
-            ///////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////
             if(SearchTb.Text != null)
             {
                 servicesListSort = servicesListSort.Where(x=> x.Title.ToLower().Contains
@@ -84,6 +84,7 @@ namespace Language_School.Pages
             {
                 ServiceWP.Children.Add(new ServiceUserControl(service));
             }
+            CountDataTb.Text = servicesListSort.Count() + " из " + App.db.Service.Count();
         }
         
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,6 +100,11 @@ namespace Language_School.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void AddBut_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Добавление услуги", new AddEditProductPage(new Service())));
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Language_School"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900">
+        Title="MainWindow" Height="550" Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="17*"></RowDefinition>
@@ -25,7 +25,7 @@
             <Button x:Name="ExitBut" Click="ExitBut_Click">Выход</Button>
         </StackPanel>
 
-        <TextBlock Grid.Column="1" FontSize="20">Школа языков "Леарн"</TextBlock>
-        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
+        <TextBlock x:Name="TitleTb" HorizontalAlignment="Center" Grid.Column="1" FontSize="20">Школа языков "Леарн"</TextBlock>
+        <Frame  NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
     </Grid>
 </Window>

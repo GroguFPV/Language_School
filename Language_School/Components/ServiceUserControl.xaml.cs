@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Language_School.Pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Language_School.Components
 {
     /// <summary>
@@ -21,9 +23,11 @@ namespace Language_School.Components
     /// </summary>
     public partial class ServiceUserControl : UserControl
     {
-        public ServiceUserControl(Service service)
-        {
+        private Service service;
+        public ServiceUserControl(Service _service)
+        {    
             InitializeComponent();
+            service = _service;
             if (App.isAdmin == false)
             {
                 EditBtn.Visibility = Visibility.Hidden;
@@ -46,6 +50,25 @@ namespace Language_School.Components
             image.StreamSource = byteStream;
             image.EndInit();
             return image;
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditProductPage(service)));
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(service.ClientService != null)
+            {
+                MessageBox.Show("Удаление запрещено!");
+            }
+            else
+            {
+                App.db.Service.Remove(service); 
+                App.db.SaveChanges();
+            }
+
         }
     }
 }

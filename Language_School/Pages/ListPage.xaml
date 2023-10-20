@@ -37,6 +37,10 @@
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
             <WrapPanel x:Name="ServiceWP"/>
         </ScrollViewer>
-        <Button x:Name="AddBut" Grid.Row="2" Width="100">Добавить</Button>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="AddBut"  Width="100" Click="AddBut_Click">Добавить</Button>
+            <TextBlock Margin ="20 0" x:Name="CountDataTb"></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>
