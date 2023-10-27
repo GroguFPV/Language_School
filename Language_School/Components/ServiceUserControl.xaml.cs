@@ -44,31 +44,36 @@ namespace Language_School.Components
         }
         private BitmapImage GetImageSources(byte[] byteImage)
         {
-            MemoryStream byteStream = new MemoryStream(byteImage);
-            BitmapImage image =new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = byteStream;
-            image.EndInit();
-            return image;
+            if (byteImage != null)
+            {
+                MemoryStream byteStream = new MemoryStream(byteImage);
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = byteStream;
+                image.EndInit();
+                return image;
+            }
+                return new BitmapImage(new Uri(@"\res\school_logo.png", UriKind.Relative));
         }
-
-        private void EditBtn_Click(object sender, RoutedEventArgs e)
+            private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditProductPage(service)));
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(service.ClientService != null)
+            if(service.ClientService.Count !=0)
             {
                 MessageBox.Show("Удаление запрещено!");
             }
             else
             {
+                MessageBox.Show("Удалено: " +  service.Title);
+
                 App.db.Service.Remove(service); 
                 App.db.SaveChanges();
+                Navigation.NextPage(new PageComponent("Список услуг", new ListPage()));
             }
-
         }
     }
 }

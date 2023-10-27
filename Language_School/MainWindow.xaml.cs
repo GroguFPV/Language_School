@@ -24,13 +24,13 @@ namespace Language_School
         {
             InitializeComponent();
             Navigation.mainWindow = this;
-            var path = @"C:\Users\Admin\Desktop\Task\Сессия 1\services_s_import\";
-            foreach (var item in App.db.Service.ToArray())
-            {
-                var fullPath = path + item.MainImagePath;
-                item.MainImage = File.ReadAllBytes(fullPath);
-            }
-            App.db.SaveChanges();
+            //var path = @"C:\Users\Admin\Desktop\Task\Сессия 1\services_s_import\Услуги школы";
+            //foreach (var item in App.db.Service.ToArray())
+            //{
+            //    var fullPath = path + item.MainImagePath;
+            //    item.MainImage = File.ReadAllBytes(fullPath);
+            //}
+            //App.db.SaveChanges();
 
             Navigation.NextPage(new PageComponent("Авторизация", new Autoris()));
         }

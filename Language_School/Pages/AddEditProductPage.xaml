@@ -5,54 +5,53 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Language_School.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="470" d:DesignWidth="600"
+      d:DesignHeight="470" d:DesignWidth="700"
       Title="AddEditProductPage">
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="70*"></ColumnDefinition>
+            <ColumnDefinition Width="90*"></ColumnDefinition>
             <ColumnDefinition Width="575*"></ColumnDefinition>
-            <ColumnDefinition Width="70*"></ColumnDefinition>
+            <ColumnDefinition Width="90*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
 
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Идентификатор</TextBlock>
-                <TextBox Text="{Binding ID}"></TextBox>
+                <TextBox Text="{Binding ID}" Background="WhiteSmoke"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Название</TextBlock>
-                <TextBox TextWrapping="Wrap" Text="{Binding Title}" ></TextBox>
+                <TextBox Background="WhiteSmoke" Height="35" TextWrapping="Wrap" Text="{Binding Title}" ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Стоимость</TextBlock>
-                <TextBox Text="{Binding Cost}" ></TextBox>
+                <TextBox Background="WhiteSmoke" PreviewTextInput="TextBox_PreviewTextInput" Text="{Binding Cost}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Длительность сек.</TextBlock>
-                <TextBox Text="{Binding DurationSeconds}"></TextBox>
+                <TextBox Background="WhiteSmoke" PreviewTextInput="TextBox_PreviewTextInput" Text="{Binding DurationInSeconds}" ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock >Описание</TextBlock>
-                <TextBox TextWrapping="Wrap" Text="{Binding Description}" Height="100"></TextBox>
+                <TextBlock>Описание</TextBlock>
+                <TextBox  Background="WhiteSmoke" TextWrapping="Wrap" Text="{Binding Description}" Height="100" ></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Скидка</TextBlock>
-                <TextBox Text="{Binding Discount}" ></TextBox>
+                <TextBox Background="WhiteSmoke" PreviewTextInput="TextBox_PreviewTextInput" Text="{Binding Discount}" ></TextBox>
             </StackPanel>
             <StackPanel>
-                <Button>Сохранить</Button>
+                <Button x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
             <StackPanel Margin="50 0"></StackPanel>
-            <Border BorderBrush="#FF868686" BorderThickness="1">
-                <Image Source = "{Binding MainImage}" Height="120"></Image>
+            <Border  BorderBrush="#FF868686" BorderThickness="1">
+                <Image x:Name="MainImage" Source = "{Binding MainImage}" Height="120" ></Image>
             </Border>
-            <Button x:Name="AddImg">Добавить изображение</Button>
+            <Button x:Name="AddImgBtn" Click="AddImgBtn_Click">Добавить изображение</Button>
         </StackPanel>
-        
     </Grid>
 </Page>
